@@ -1,0 +1,129 @@
+## GLOBAL
+set hidden_host # When set, mutt will skip the host name part of ``$hostname'' variable when adding the domain part to addresses.
+set move=no
+set quit=ask-yes
+set timeout=15
+set imap_authenticators="login"
+set imap_passive="no"
+unset mark_old # Controls whether or not mutt marks new unread messages as old if you exit a mailbox without reading them.
+set tilde
+auto_view text/html
+alternative_order text/plain text/enriched text text/html  # Show the "text/plain" part *before* the "text/html" part
+set realname="Clément Delafargue"
+set signature="~/.mutt/signature"
+set reply_regexp="^((re|aw|sv|ang):[ \t]*)+"
+# get rid of auto '--' when composing mail
+set sig_dashes=yes
+set abort_nosubject=yes
+set abort_unmodified=yes
+set postpone=ask-no
+set tmpdir="~/.mutt/tmp/"
+set sort=reverse-threads
+set sort_aux=mailbox-order
+set editor="vim + -c 'set ft=mail tw=80' -c ':0/^$'"
+unset metoo
+#unset confirmappend
+#set help = no
+charset-hook US-ASCII     ISO-8859-1
+charset-hook x-unknown    ISO-8859-1
+set allow_8bit
+set locale="fr_FR.UTF-8"
+set charset="utf-8"
+charset-hook us-ascii iso-8859-1
+charset-hook x-unknown iso-8859-1
+charset-hook windows-1250 CP1250
+charset-hook windows-1251 CP1251
+charset-hook windows-1252 CP1252
+charset-hook windows-1253 CP1253
+charset-hook windows-1254 CP1254
+charset-hook windows-1255 CP1255
+charset-hook windows-1256 CP1256
+charset-hook windows-1257 CP1257
+charset-hook windows-1258 CP1258
+ 
+## ACCOUNT
+#  GMAIL
+set imap_user = 'user@gmail.com'
+set imap_pass = 'P455W0RD'
+set spoolfile = imaps://imap.gmail.com:993/INBOX
+set folder = imaps://imap.gmail.com:993
+set record="imaps://imap.gmail.com/[Gmail]/Sent Mail"
+set maildir_trash = yes
+unset record
+set postponed="imaps://imap.gmail.com/[Gmail]/Drafts"
+set header_cache="~/.mutt/cache/headers"
+set header_cache = yes
+set message_cachedir="~/.mutt/cache/bodies"
+set certificate_file=~/.mutt/certificates
+set imap_check_subscribed="yes"
+set imap_list_subscribed="yes"
+mailboxes !
+set smtp_url = smtp://user@smtp.gmail.com:587/ 
+set smtp_pass= "P455W0RD"
+ 
+## VIEW MAIL
+set smileys="(>From)|(:[-^]?[][)(><}{|/DP])"
+set pager_context=1 # number of lines that overlap on paging
+set pager_index_lines=0
+set pager_stop # "next_page" won't jump to next message at end of messages
+ 
+## REPLY
+set edit_headers
+set attribution="%n wrote:" # attribution format : on day, name wrote (alias=%a if you want to add that)
+set indent_string="> "
+set from="Clément Delafargue <clement@delafargue.name>"
+ 
+## INDEX
+set index_format="%4C %Z  [%D]  %-15.15n   %s"
+# When viewing the index, mails are marked
+# Z -not sent to me, T - sent only to me, G - sent to me
+# and others(Group), C - cc'ed to me, F - from me
+set to_chars=" +-.F"
+set date_format="%d/%b - %H:%M"
+ 
+## HEADERS
+ignore *
+unignore  From: To Cc Reply-To Mail-Followup-To Subject User-Agent X-Mailer Date X-Spam-Level: 
+hdr_order Date From: To Cc Reply-To Mail-Followup-To  User-Agent X-Mailer X-Spam-Level: Subject
+ 
+## BINDINGS
+bind pager <up>   previous-line
+bind pager <down> next-line
+ 
+bind index F flag-message
+bind pager F flag-message
+macro attach W <save-entry><kill-line>/home/divarvel/
+ 
+## SIDEBAR
+# set up the sidebar, default not visible
+#set sidebar_width=24
+#set sidebar_visible=yes
+#set sidebar_delim='|' 
+# color of folders with new mail
+#color sidebar_new yellow default 
+# ctrl-n, ctrl-p to select next, prev folder
+# ctrl-o to open selected folder
+#bind index \CP sidebar-prev
+#bind index \CN sidebar-next
+#bind index \CO sidebar-open
+#bind pager \CP sidebar-prev
+#bind pager \CN sidebar-next
+#bind pager \CO sidebar-open 
+# b toggles sidebar visibility
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+bind index B bounce-message
+ 
+## COLORS
+source ~/.mutt/colors/colors.linux
+#source ~/.mutt/colors/themes.256
+#source ~/.mutt/colors/calmar.light
+alias divarvel Clément Delafargue <clement@delafargue.name>
+
+
+# Lecture des contacts gmail (goobook)
+set query_command="goobook query '%s'
+bind editor <Tab> complete-query
+
+macro index,pager a "goobook add" "add the sender address to Google contacts"
+
