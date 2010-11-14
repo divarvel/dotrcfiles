@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/divarvel/test'
+let g:netrw_dirhist_2='/home/divarvel/Scripts/Python/jDbT/.git'
+let g:netrw_dirhist_3='/home/divarvel/Scripts/Java/android/HelloWorld/res/layout'
+let g:netrw_dirhist_4='/home/divarvel/Scripts/Python/yatta'
+let g:netrw_dirhist_5='/home/divarvel/Documents/ECN/ENG'
+let g:netrw_dirhist_6='/home/divarvel/.newsbeuter'
+let g:netrw_dirhist_7='/home/divarvel/Scripts/Python/jDbT_old'
+let g:netrw_dirhist_8='/home/divarvel/Sites/mailleur/web/views/Page'
