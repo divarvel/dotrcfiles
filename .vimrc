@@ -111,7 +111,8 @@ imap <F5> <ESC>:set spell<cr>a
 autocmd BufNewFile,BufRead *.gplot set ft=gnuplot
 autocmd BufNewFile,BufRead .rst,.rest set ft=rst
 autocmd BufNewFile,BufRead .js.erb, set ft=ruby
-
+autocmd BufNewFile,BufRead .svg, set ft=xml
+autocmd BufNewFile,BufRead .dsl,.asl set ft=asl 
 " Snipmate info
 let g:snips_author = 'Clément Delafargue'
 
