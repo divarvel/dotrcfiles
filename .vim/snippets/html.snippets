@@ -118,13 +118,17 @@ snippet title
 	<title>${1:`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`}</title>${2}
 snippet script
 	<script type="text/javascript" charset="utf-8">
+		//<![CDATA[
 		${1}
+		//]]>
 	</script>${2}
 snippet scriptsrc
 	<script src="${1}.js" type="text/javascript" charset="utf-8"></script>${2}
 snippet style
 	<style type="text/css" media="${1:screen}">
+		/*<![CDATA[*/
 		${2}
+		/*]]>*/
 	</style>${3}
 snippet base
 	<base href="${1}" target="${2}"`Close()`>
@@ -188,3 +192,14 @@ snippet table
 	</table>${4}
 snippet textarea
 	<textarea name="${1:Name}" rows="${2:8}" cols="${3:40}">${4}</textarea>${5}
+
+snippet ul
+	<ul>
+		<li>${1}</li>
+	</ul>
+
+snippet dl
+	<dl>
+		<dt>${1}</dt>
+		<dd>${2}</dd>
+	</dl>
