@@ -116,3 +116,19 @@ autocmd BufNewFile,BufRead .dsl,.asl set ft=asl
 " Snipmate info
 let g:snips_author = 'Clément Delafargue'
 
+" General configuration
+set tabstop=4
+set softtabstop=4
+set expandtab
+set shiftwidth=4
+
+" Zen Coding configuration
+let g:user_zen_settings = {
+\	'php' : {
+\		'extends' : 'html',
+\		'filters' : 'c',
+\	},
+\	'xml' : {
+\		'extends' : 'html',
+\	},
+\}
