@@ -92,6 +92,10 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
+" Disable help
+map <F1> <Esc>
+imap <F1> <Esc>
+
 " Spell Check
 map <F2> :set spelllang=en_us spell<cr>
 map <F3> :set spelllang=fr spell<cr>
