@@ -1,0 +1,9 @@
+set adjust_open width
+
+map + zoom in
+map - zoom out
+
+map c scroll left
+map t scroll down
+map s scroll up
+map r scroll right
