@@ -128,3 +128,14 @@ let g:user_zen_settings = {
 \		'extends' : 'html',
 \	},
 \}
+
+" Refresh a file when modified from the outside
+set autoread
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc
+
+set nobackup
+set nowb
+set noswapfile
+
