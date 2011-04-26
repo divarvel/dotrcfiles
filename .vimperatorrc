@@ -1,0 +1,42 @@
+" [HJKL] -> {CTSR}
+" ————————————————
+" {cr} = « gauche / droite »
+noremap c h
+noremap r l
+" {ts} = « haut / bas »
+noremap t j
+noremap s k
+" {CR} = « haut / bas de l'écran »
+noremap C H
+noremap R L
+" {TS} = « joindre / aide »
+noremap T J
+noremap S K
+" Corollaire : repli suivant / précédent
+noremap zs zj
+noremap zt zk
+   
+" {HJKL} <- [CTSR]
+" ————————————————
+" {J} = « Jusqu'à »            (j = suivant, J = précédant)
+noremap j t
+noremap J T
+" {L} = « Change »             (h = bloc, H = jusqu'à la fin de ligne)
+noremap l c
+noremap L C
+" {H} = « Remplace »           (l = caractère, L = texte)
+noremap h r
+noremap H R
+" {K} = « Substitue »          (k = caractère, K = ligne)
+noremap k s
+noremap K S
+
+
+" Auto-pin
+autocmd PageLoad twitter.com js getBrowser().pinTab(getBrowser().mCurrentTab);
+autocmd PageLoad facebook.com js getBrowser().pinTab(getBrowser().mCurrentTab);
+autocmd PageLoad gmail.com js getBrowser().pinTab(getBrowser().mCurrentTab);
+autocmd PageLoad mail.google.com js getBrowser().pinTab(getBrowser().mCurrentTab);
+
+map u {:js if(!getBrowser().mCurrentTab.pinned) { getBrowser().pinTab(getBrowser().mCurrentTab); } else { getBrowser().unpinTab(getBrowser().mCurrentTab); }<cr>}
+
