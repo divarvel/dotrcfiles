@@ -1,0 +1,25 @@
+# Git aliases <3
+alias gpl='git pull'
+alias gps='git push'
+alias gst='git status'
+alias gci='git commit'
+alias gca='git commit -a'
+alias gdf='git diff'
+alias gdc='git diff --cached'
+alias gad='git add'
+alias gap='git add --patch'
+alias gri='git rebase -i'
+
+# SBT aliases
+alias scq='sbt console-quick'
+alias stq='sbt test-quick'
+alias cstq='sbt \~test-quick'
+alias sjr='sbt \~jetty-run'
+alias sc='sbt compile'
+alias csc='sbt \~compile'
+
+# Xrandr aliases
+alias work="xrandr --output LVDS-1 --auto && xrandr --output DP-1 --auto --left-of LVDS-1"
+alias home="xrandr --output LVDS-1 --auto && xrandr --output VGA-2 --auto --left-of LVDS-1"
+alias LED="xrandr --output LVDS-1"
+alias HDMI="xrandr --output DP-1"
