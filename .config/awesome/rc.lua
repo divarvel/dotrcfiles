@@ -190,9 +190,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Multimedia keys
-    awful.key({}, "#121", function () awful.util.spawn("/home/divarvel/bin/volmute") end),
-    awful.key({}, "#122", function () awful.util.spawn("/home/divarvel/bin/voldown")  end),
-    awful.key({}, "#123", function () awful.util.spawn("/home/divarvel/bin/volup") end),
+    awful.key({}, "#121", function () awful.util.spawn("amixer -q sset Master toggle") end),
+    awful.key({}, "#122", function () awful.util.spawn("amixer -q sset Master 2%-")  end),
+    awful.key({}, "#123", function () awful.util.spawn("amixer -q sset Master 2%+") end),
     awful.key({}, "#171", function () awful.util.spawn("mpc next")  end),
     awful.key({}, "#172", function () awful.util.spawn("mpc toggle")  end),
     awful.key({}, "#173", function () awful.util.spawn("mpc prev")  end),
