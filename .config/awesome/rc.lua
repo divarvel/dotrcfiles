@@ -199,11 +199,11 @@ globalkeys = awful.util.table.join(
     awful.key({}, "#173", function () awful.util.spawn("mpc prev")  end),
 
     -- Dualscreen manipulation
-    awful.key({}, "#235", function () awful.util.spawn("/home/divarvel/bin/changeDisplay")  end),
+    -- awful.key({}, "#235", function () awful.util.spawn("/home/divarvel/bin/changeDisplay")  end),
 
     -- Lock Screen
-    awful.key({ "Mod1", "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
-    awful.key({}, "#127", function () awful.util.spawn("xscreensaver-command -lock") end),
+    awful.key({ "Mod1", "Control" }, "l", function () awful.util.spawn("i3lock -d") end),
+    awful.key({}, "#127", function () awful.util.spawn("i3lock -d") end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
