@@ -193,6 +193,8 @@ globalkeys = awful.util.table.join(
     awful.key({}, "#121", function () awful.util.spawn("amixer -q sset Master toggle") end),
     awful.key({}, "#122", function () awful.util.spawn("amixer -q sset Master 10%-")  end),
     awful.key({}, "#123", function () awful.util.spawn("amixer -q sset Master 10%+") end),
+    awful.key({}, "#122", function () awful.util.spawn("amixer -q sset Master 2%-")  end),
+    awful.key({}, "#123", function () awful.util.spawn("amixer -q sset Master 2%+") end),
     awful.key({}, "#171", function () awful.util.spawn("mpc next")  end),
     awful.key({}, "#172", function () awful.util.spawn("mpc toggle")  end),
     awful.key({}, "#174", function () awful.util.spawn("mpc stop")  end),
