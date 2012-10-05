@@ -141,3 +141,6 @@ set nobackup
 set nowb
 set noswapfile
 
+highlight RedundantSpaces ctermbg=red guibg=red
+" match RedundantSpaces /\s\+$\| \+\ze\t\|\t/
+match RedundantSpaces /\s\+$\| \+\ze\t/
