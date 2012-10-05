@@ -131,6 +131,11 @@ let g:user_zen_settings = {
 \	},
 \}
 
+let g:github_user = 'divarvel'
+let g:github_token = 'my-token'
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_detect_filetype = 1
+
 " Refresh a file when modified from the outside
 set autoread
 
