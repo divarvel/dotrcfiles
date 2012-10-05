@@ -1,5 +1,11 @@
 [user]
 	name = Clément Delafargue
-	email = divarvel@gmail.com
+	email = clement@Delafargue.name
 [color]
 	ui = auto
+
+[url "git@github.com:eklaweb/"]
+    insteadof = eklawebgh:
+
+[url "git@github.com:divarvel/"]
+    insteadof = divarvelgh:
