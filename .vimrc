@@ -25,10 +25,12 @@ endif
 " turn on this option as well
 set background=dark
 
-" Color scheme
-set t_Co=256
-colorscheme vitamins
-" colorscheme molokai
+if $TERM != "linux"
+    " colorscheme molokai
+    " colorscheme zenburn
+    " colorscheme vitamins
+    colorscheme sunburst
+endif
 
 " Display line numbers
 set number
