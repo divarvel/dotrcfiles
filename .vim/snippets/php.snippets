@@ -214,3 +214,15 @@ snippet fun
 # $... = array (...)
 snippet array
 	$${1:arrayName} = array('${2}' => ${3});${4}
+
+
+snippet techo
+	<?php echo ${1};?>
+snippet tif
+	<?php if(${1}): ?>
+		${2}
+	<?php endif; ?>
+snippet tfo
+	<?php foreach(${1} as ${2}): ?>
+		${3}
+	<?php endforeach; ?>
