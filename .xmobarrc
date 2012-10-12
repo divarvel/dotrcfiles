@@ -1,0 +1,20 @@
+Config { font = "xft:DejaVu Sans-8:"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , lowerOnStart = False
+       , commands = [ Run StdinReader
+                    , Run Date "%H:%M" "date" 300
+                    , Run BatteryP ["BAT0"]
+                                   [ "-t", "<timeleft> <left>%"
+                                   , "-L", "10", "-H", "80", "-p", "3"
+                                   , "--", "-O", "<fc=green>On</fc> - ", "-o", ""
+                                   , "-L", "-15", "-H", "-5"
+                                   , "-l", "red", "-m", "blue", "-h", "green"
+                                   ]
+                                   600
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %battery% | %date%"
+       }
