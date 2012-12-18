@@ -1,0 +1,36 @@
+[general]
+metadata = ~/.offlineimap
+accounts = GMail
+maxsyncaccounts = 2
+ignore-readonly = no
+pythonfile = ~/.offlineimap.py
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+[Account GMail]
+localrepository = Local-Gmail
+remoterepository = Remote-Gmail
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository Local-Gmail]
+type = Maildir
+localfolders = ~/.mail/divarvel_gmail.com
+restoreatime = no
+
+[Repository Remote-Gmail]
+type = Gmail
+remoteuser = divarvel@gmail.com
+remotepasseval = get_password("google.com/divarvel@gmail.com[imap]")
+ssl = yes
+maxconnections = 1
+realdelete = no
+folderfilter = lambda foldername: foldername in ['INBOX','[Gmail]/Starred','[Gmail]/Drafts','[Gmail]/All Mail','[Gmail]/Sent Mail','[Gmail]/Trash']
+sslcacertfile=/etc/ssl/certs/Equifax_Secure_CA.pem
+
