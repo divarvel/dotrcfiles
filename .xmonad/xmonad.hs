@@ -10,6 +10,9 @@
 import XMonad
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.SetWMName
+import XMonad.Hooks.ICCCMFocus
+import XMonad.Actions.UpdatePointer
 import XMonad.Layout.NoBorders
 import Data.Monoid
 import System.Exit
@@ -262,7 +265,7 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = return ()
+myLogHook = updatePointer (Relative 0.5 0.5) >> takeTopFocus >> setWMName "LG3D"
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -272,7 +275,7 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = setWMName "LG3D"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
