@@ -150,7 +150,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0                 , xF86AudioNext), spawn "mpc next")
 
     -- Lock Screen
-    , ((controlMask .|. mod1Mask, xK_l), spawn "i3lock -d")
+    , ((controlMask .|. mod1Mask, xK_l), spawn "i3lock -ti ~/Images/lambdaman_full.png")
 
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
