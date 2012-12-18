@@ -1,0 +1,55 @@
+# Git aliases <3
+alias gpl='git pull'
+alias gps='git push'
+alias gst='git status'
+
+alias gci='git commit -v'
+alias gca='git commit -av'
+
+alias gdf='git diff'
+alias gdc='git diff --cached'
+alias gad='git add'
+alias gap='git add --patch'
+alias gri='git rebase -i'
+
+# SBT aliases
+alias scq='sbt console-quick'
+alias stq='sbt test-quick'
+alias cstq='sbt \~test-quick'
+alias sjr='sbt \~jetty-run'
+alias sc='sbt compile'
+alias csc='sbt \~compile'
+
+# Xrandr aliases
+alias work="xrandr --output LVDS-1 --auto && xrandr --output DP-1 --auto --left-of LVDS-1 --rotate normal"
+alias work2="xrandr --output LVDS-1 --auto && xrandr --output DP-1 --auto --left-of LVDS-1 --rotate right"
+alias home="xrandr --output LVDS-1 --auto && xrandr --output VGA-1 --auto --left-of LVDS-1"
+alias LED="xrandr --output LVDS-1"
+alias HDMI="xrandr --output DP-1"
+alias VGA="xrandr --output VGA-2"
+
+function mkcd() {
+  mkdir $1 && cd $1
+}
+
+# Play
+alias play="/home/clement/Sites/Play20/play"
+
+alias mvn="/home/clement/bin/mvn/bin/mvn"
+
+alias lock="i3lock -d"
+
+alias sl="sl"
+
+
+alias rs="redshift -l 48.8:2.32"
+
+alias mvn="~/bin/apache-maven-3.0.4/bin/mvn"
+
+# Scala
+alias sbt="~/bin/sbt-11.2/bin/sbt"
+alias scala="cd ~/Scripts/scala/repl_2.9.1/ && sbt console && cd -"
+
+
+alias serve="python -m SimpleHTTPServer"
+

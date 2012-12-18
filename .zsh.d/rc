@@ -1,0 +1,7 @@
+autoload -U compinit zmv
+compinit
+
+chpwd_functions=()
+precmd_functions=()
+preexec_functions=()
+source ${ZSH_HOME}/utils/source-dir rc

@@ -1,0 +1,66 @@
+
+# Autocomplete. Like a boss.
+compctl -u finger -- talk -- ytalk
+compctl -O print
+compctl -E echo
+compctl -u -x 's[+] c[-1,-f],s[-f+]' -g '~/Mail/*(:t)' - 's[-f],c[-1,-f]' -f -- mail -- Mail -- elm -- pine
+compctl -e which -- where -- whence
+
+# list of completers to use
+zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
+# allow one error for every three characters typed in approximate completer
+zstyle -e ':completion:*:approximate:*' max-errors \
+#     'reply=( $(( ($#prefix+$#suffix)/3 )) numeric )'
+
+# insert all expansions for expand completer
+zstyle ':completion:*:expand:*' tag-order all-expansions
+
+# formatting and messages
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format "$user_color%b%d%b$end"
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format '%bsorry, no matches for: %d%b'
+zstyle ':completion:*:corrections' format "$user_color%b%d (erreurs:
+%e)%b$end"
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+                             /usr/sbin /usr/bin /sbin /bin /usr/x11r6/bin
+zstyle ':completion:*' group-name ''
+
+#utilisation du cache
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+#couleur dans le kill
+zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=36=31"
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' verbose yes
+#zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' group-name ''
+
+# match uppercase from lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={a-z}' 'm:{a-za-z}={a-za-z}' 'r:|[._-]=* r:|=* l:|=*'
+
+# filename suffixes to ignore during completion (except after rm command)
+zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.o' '*?.c~' '*?.pl~' '*?.erl~' \
+                                      '*?.old' '*?.dis' '*?.bck'
+#completion sur le local directory puis sur le cdpath pour la commande cd
+zstyle ':completion:*:*:cd:*' tag-order local-directories path-directories
+
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' select-prompt %sscrolling active: current selection at %p%s
+
+zstyle ':completion:*' list-colors ${(s.:.)ls_colors}
+zstyle ':completion:*' list-prompt %sat %p: hit tab for more, or the character to insert%s
+
+zstyle ':completion:*' hosts $_myhosts
+
+#pas trop compris a quoi ca sert...
+zstyle ':completion:*' special-dirs
+true
+
+
+autoload -U compinit
+compinit
+
+zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+
