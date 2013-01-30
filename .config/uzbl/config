@@ -235,30 +235,28 @@ set ebind     = @mode_bind global,-insert
 @cbind  w            = event REQ_NEW_WINDOW
 
 # Page movement binds
-@cbind  j            = scroll vertical 20
-@cbind  k            = scroll vertical -20
-@cbind  h            = scroll horizontal -20
-@cbind  l            = scroll horizontal 20
+@cbind  t            = scroll vertical 20
+@cbind  s            = scroll vertical -20
+@cbind  c            = scroll horizontal -20
+@cbind  r            = scroll horizontal 20
 @cbind  <Page_Up>    = scroll vertical -100%
 @cbind  <Page_Down>  = scroll vertical 100%
 @cbind  <Ctrl>f      = scroll vertical 100%
 @cbind  <Ctrl>b      = scroll vertical -100%
-@cbind  <<           = scroll vertical begin
-@cbind  >>           = scroll vertical end
+@cbind  gg           = scroll vertical begin
+@cbind  G            = scroll vertical end
 @cbind  <Home>       = scroll vertical begin
 @cbind  <End>        = scroll vertical end
 @cbind  ^            = scroll horizontal begin
 @cbind  $            = scroll horizontal end
 @cbind  <Space>      = scroll vertical end
-@cbind  G<Go To:>_   = scroll vertical %r!
-@cbind  _G<Go To:>_  = scroll horizontal %r!
 
 # Navigation binds
-@cbind  b   = back
-@cbind  m   = forward
+@cbind  C   = back
+@cbind  R   = forward
 @cbind  S   = stop
-@cbind  r   = reload
-@cbind  R   = reload_ign_cache
+@cbind  h   = reload
+@cbind  H   = reload_ign_cache
 
 # Zoom binds
 @cbind  +   = zoom_in
@@ -268,7 +266,7 @@ set ebind     = @mode_bind global,-insert
 @cbind  2   = set zoom_level = 2.0
 
 # Appearance binds
-@cbind  t   = toggle show_status
+@cbind  T   = toggle show_status
 
 # Page searching binds
 @cbind  /*  = search %s
@@ -281,16 +279,16 @@ set ebind     = @mode_bind global,-insert
 @cbind  <Ctrl>p = hardcopy
 
 # Web searching binds
-@cbind  gg<Google:>_         = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@
-@cbind  ddg<DuckDuckGo:>_    = uri http://duckduckgo.com/?q=%s
-@cbind  \\awiki<Archwiki:>_  = uri http://wiki.archlinux.org/index.php/Special:Search?search=\@<encodeURIComponent(%r)>\@&go=Go
-@cbind  \\wiki<Wikipedia:>_  = uri http://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
+@cbind  àg<Google:>_          = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@
+@cbind  àddg<DuckDuckGo:>_    = uri http://duckduckgo.com/?q=%s
+@cbind  àwiki<Wikipedia:>_    = uri http://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
+@cbind  àfrwiki<Wikipedia:>_  = uri http://fr.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
 
 # Handy binds
 # Set function shortcut
-@cbind  s<var:>_<value:>_  = set %1 = %2
+@cbind  set<var:>_<value:>_  = set %1 = %2
 # Exit binding
-@cbind  ZZ                 = exit
+@cbind  d                  = exit
 # Dump config to stdout
 @cbind  !dump              = sh 'echo dump_config > "$UZBL_FIFO"'
 # Reload all variables in the config
@@ -380,7 +378,8 @@ set formfiller = spawn @scripts_dir/formfiller.sh
 @cbind  gn              = event NEW_TAB
 @cbind  gN              = event NEW_TAB_NEXT
 @cbind  go<uri:>_       = event NEW_TAB %s
-@cbind  gO<uri:>_       = event NEW_TAB_NEXT %s
+@cbind  gO<uri:\@uri>_       = event NEW_TAB %s
+# @cbind  gO<uri:>_       = event NEW_TAB_NEXT %s
 
 # Closing / resting
 @cbind  gC              = exit
