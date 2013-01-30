@@ -4,7 +4,7 @@ Config { font = "xft:DejaVu Sans-8:"
        , position = Top
        , lowerOnStart = True
        , commands = [ Run StdinReader
-                    , Run Date "%H:%M" "date" 300
+                    , Run Date "%d/%m/%y %H:%M" "date" 300
                     , Run BatteryP ["BAT0"]
                                    [ "-t", "<timeleft> <left>%"
                                    , "-L", "10", "-H", "80", "-p", "3"
