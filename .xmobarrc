@@ -2,7 +2,7 @@ Config { font = "xft:DejaVu Sans-8:"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top
-       , lowerOnStart = False
+       , lowerOnStart = True
        , commands = [ Run StdinReader
                     , Run Date "%H:%M" "date" 300
                     , Run BatteryP ["BAT0"]
