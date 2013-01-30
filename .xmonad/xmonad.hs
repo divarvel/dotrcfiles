@@ -13,6 +13,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ICCCMFocus
 import XMonad.Actions.UpdatePointer
+import XMonad.Layout.Grid
 import XMonad.Layout.NoBorders
 import Data.Monoid
 import System.Exit
@@ -98,6 +99,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     --  Reset the layouts on the current workspace to default
     ,((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+
+    ,((modm,               xK_f), sendMessage FirstLayout)
 
     -- Resize viewed windows to the correct size
     , ((modm,               xK_n     ), refresh)
@@ -214,7 +217,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| noBorders Full)
+myLayout = avoidStruts (Grid ||| Mirror Grid ||| noBorders Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -244,7 +247,6 @@ myLayout = avoidStruts (tiled ||| Mirror tiled ||| noBorders Full)
 --
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
