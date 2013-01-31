@@ -345,6 +345,7 @@ set ebind     = @mode_bind global,-insert
 
 # Bookmark/history loading
 @cbind  U  = spawn @scripts_dir/load_url_from_history.sh
+@cbind  gU  = spawn @scripts_dir/open_url_from_history.sh
 @cbind  u  = spawn @scripts_dir/load_url_from_bookmarks.sh
 
 # Temporary bookmarks
