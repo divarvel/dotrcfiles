@@ -1,0 +1,11 @@
+[Unit]
+Description=GPG Agent Daemon
+
+[Service]
+ExecStart=/usr/bin/gpg-agent --enable-ssh-support --daemon --no-detach
+ExecStartPost=source /home/clement/.zsh.d/rc.d/gpg
+ExecReload=/bin/kill -HUP $MAINPID
+Type=forking
+
+[Install]
+WantedBy=default.target

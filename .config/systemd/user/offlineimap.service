@@ -1,0 +1,8 @@
+[Unit]
+Description=OfflineIMAP Service
+After=network.target
+Requires=gpg-agent.service
+[Service]
+Type=simple
+EnvironmentFile=/home/clement/.gpg-agent-info
+ExecStart=/usr/bin/offlineimap
