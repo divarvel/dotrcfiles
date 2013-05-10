@@ -1,6 +1,6 @@
 [user]
-	name = Clément Delafargue
-	email = clement@Delafargue.name
+	name = Clement Delafargue
+	email = clement@delafargue.name
 [color]
 	ui = auto
 
@@ -9,3 +9,11 @@
 
 [url "git@github.com:divarvel/"]
     insteadof = divarvelgh:
+
+[url "gitolite@git.clever-cloud.com:"]
+    insteadof = clever:
+
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+[core]
+	excludesfile = /home/clement/.gitignore_global
