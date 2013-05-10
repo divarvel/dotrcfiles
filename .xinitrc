@@ -1,4 +1,4 @@
-xscreensaver -nosplash &
-start-pulseaudio-x11 &
-urxvtd -q -f -o
-exec ck-launch-session awesome
+xsetroot -cursor_name left_ptr
+feh --bg-fill ~/Images/skye_1920x1080.jpg || xsetroot -solid "#222222"
+
+exec xmonad
