@@ -1,3 +1,16 @@
+" Bundle management
+
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle "gmarik/vundle"
+
+Bundle "gmarik/snipmate.vim" 
+Bundle "surround"
+Bundle "ZenCoding"
+
+
+
 if has("syntax")
   syntax on
 endif
@@ -15,25 +28,19 @@ endif
 " Display line numbers
 set number
 
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-if has("autocmd")
-  filetype plugin indent on
-endif
+filetype plugin indent on
 
 
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
-set mouse=a		" Enable mouse usage (all modes)
+set showmatch
+set ignorecase
+set smartcase
+set incsearch
+set autowrite
+set mouse=a	
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
