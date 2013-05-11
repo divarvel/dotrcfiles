@@ -14,6 +14,9 @@ xterm*toolBar: false
 
 xterm*saveLines: 4096
 
+! Treat URLs as words to ease selection
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
 urxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=11
 !URxvt*boldFont: xft:Arial code r:style=Bold:pixelsize=11
 !URxvt*italicFont: xft:Arial code r:style=Italic:pixelsize=11
