@@ -6,8 +6,17 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 
 Bundle "gmarik/snipmate.vim" 
-Bundle "surround"
-Bundle "ZenCoding"
+Bundle "tpope/vim-surround"
+Bundle "mattn/zencoding-vim"
+Bundle "derekwyatt/vim-scala"
+Bundle "vim-scripts/AutoComplPop"
+Bundle "vim-scripts/ctrlp.vim"
+
+set wildignore+=*.class,*/target/*
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
 
 
@@ -21,8 +30,8 @@ colorscheme desert
 if $TERM != "linux"
     " colorscheme molokai
     " colorscheme zenburn
-    colorscheme vitamins
-    " colorscheme sunburst
+    " colorscheme vitamins
+    colorscheme sunburst
 endif
 
 " Display line numbers
@@ -90,3 +99,10 @@ set nowb
 set noswapfile
 
 set nohlsearch
+ 
+
+autocmd insertEnter * set cursorline
+autocmd insertLeave * set nocursorline
+set list
+set listchars=tab:>-,trail:·
+
