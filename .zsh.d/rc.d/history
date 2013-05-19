@@ -1,2 +1,7 @@
 setopt histignoredups
 setopt histignorespace
+
+HISTFILE=~/.histfile
+HISTSIZE=2048
+SAVEHIST=2048
+setopt appendhistory autocd extendedglob notify nonomatch PROMPT_SUBST
