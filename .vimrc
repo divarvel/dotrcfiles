@@ -11,8 +11,9 @@ Bundle "mattn/zencoding-vim"
 Bundle "derekwyatt/vim-scala"
 Bundle "vim-scripts/AutoComplPop"
 Bundle "vim-scripts/ctrlp.vim"
+Bundle "godlygeek/tabular"
 
-set wildignore+=*.class,*/target/*
+set wildignore+=*.class,*/target/*,*/node_modules/*,*/_cache/*,*/_site/*
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-t>'],
     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
