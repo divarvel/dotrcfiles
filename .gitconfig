@@ -29,3 +29,5 @@
     ad=add
     ap=add -p
     ri=rebase -i @{u}
+[push]
+	default = simple
