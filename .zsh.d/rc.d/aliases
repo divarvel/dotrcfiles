@@ -29,6 +29,8 @@ alias scala="cd ~/scripts/scala-repl/2.10.1/ && sbt console && cd -"
 
 alias serve="python -m SimpleHTTPServer"
 
+alias ht="~/projects/fun/hammertime/cabal-dev/bin/hammertime"
+
 
 sudo() {
     su - -c "$@"
