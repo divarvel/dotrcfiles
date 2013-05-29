@@ -13,6 +13,9 @@
 [url "gitolite@git.clever-cloud.com:"]
     insteadof = clever:
 
+[url "git@github.com:CleverCloud/"]
+    insteadof = clevergh:
+
 [remote "origin"]
 	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [core]
