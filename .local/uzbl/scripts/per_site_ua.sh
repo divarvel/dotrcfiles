@@ -17,20 +17,15 @@ UZBL_URI=$1
 USER_AGENT_FILE="${UZBL_PER_SITE_USERAGENT_FILE:-${UZBL_DATA_DIR}/useragents.txt}"
 NEW_USER_AGENT=""
 IFS='|'
-echo "--------"
-echo $UZBL_URI
 while read uri useragent
 do
-    echo $uri
     if [[ "$UZBL_URI" =~ "$uri" ]]
     then
-        echo "OK"
         NEW_USER_AGENT="$useragent"
         break
     fi
 done < "${USER_AGENT_FILE}"
 
-echo "--------"
 if [ "$NEW_USER_AGENT" ]
 then
     echo "set useragent = ${NEW_USER_AGENT}" > "$UZBL_FIFO"
