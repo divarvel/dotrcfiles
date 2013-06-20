@@ -1,3 +1,0 @@
-source ${ZSH_HOME}/utils/source-dir logout
-
-[[ $TTY = /dev/tty* ]] && reset || clear

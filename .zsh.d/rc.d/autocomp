@@ -49,7 +49,7 @@ zstyle ':completion:*:*:cd:*' tag-order local-directories path-directories
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' select-prompt %sscrolling active: current selection at %p%s
 
-zstyle ':completion:*' list-colors ${(s.:.)ls_colors}
+#zstyle ':completion:*' list-colors ${(s.:.)ls_colors}
 zstyle ':completion:*' list-prompt %sat %p: hit tab for more, or the character to insert%s
 
 zstyle ':completion:*' hosts $_myhosts
@@ -64,3 +64,4 @@ compinit
 
 zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
+compinit

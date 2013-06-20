@@ -1,2 +1,0 @@
-export ZSH_HOME=$HOME/.zsh.d
-source ${ZSH_HOME}/utils/source-dir profile

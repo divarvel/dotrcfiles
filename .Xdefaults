@@ -1,11 +1,21 @@
 Xcursor.theme: Vanilla-DMZ
-Xcursor.size: 22
 
 Xft.antialias: 1
 Xft.dpi: 96
 Xft.hinting: 1
 Xft.hintstyle: hintfull
 Xft.rgba: rgb
+
+
+xterm*termName: xterm-256color
+xterm*locale: true
+xterm*metaSendsEscape: true
+xterm*toolBar: false
+
+xterm*saveLines: 4096
+
+! Treat URLs as words to ease selection
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
 urxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=11
 !URxvt*boldFont: xft:Arial code r:style=Bold:pixelsize=11

@@ -13,7 +13,24 @@
 [url "gitolite@git.clever-cloud.com:"]
     insteadof = clever:
 
+[url "git@github.com:CleverCloud/"]
+    insteadof = clevergh:
+
 [remote "origin"]
 	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [core]
 	excludesfile = /home/clement/.gitignore_global
+
+[alias]
+    pl=pull
+    ps=push
+    st=status -sb
+    lg=log --since yesterday --author clement
+    ci=commit -v
+    df=diff
+    dc=diff --cached
+    ad=add
+    ap=add -p
+    ri=rebase -i @{u}
+[push]
+	default = simple

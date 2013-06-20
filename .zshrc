@@ -1,90 +1,58 @@
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
+source ~/.zsh.d/rc.d/autocomp
+source ~/.zsh.d/rc.d/history
+source ~/.zsh.d/rc.d/aliases
+source ~/.zsh.d/rc.d/vcs_info
+source ~/.zsh.d/rc.d/bindkey
+source ~/.zsh.d/rc.d/prompt
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-export ZSH_THEME="robbyrussell"
+autoload -Uz colors
+colors
+unsetopt beep
 
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
 
-# Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
+if [ -e /etc/profile.env ] ; then
+. /etc/profile.env
+fi
 
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
+export EDITOR=${EDITOR:-/usr/bin/vim}
+export PAGER=${PAGER:-/usr/bin/less}
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# export DISABLE_AUTO_TITLE="true"
+umask 022
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github vi-mode)
+PROMPT='${vcs_info_msg_0_}%{${reset_color}%}'
 
-source $ZSH/oh-my-zsh.sh
+if [ "$EUID" = "0" ] || [ "$USER" = "root" ] ; then
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${ROOTPATH}"
+PROMPT="%{${fg_bold[red]}%}${PROMPT}"
+else
+PATH="/usr/local/bin:/usr/bin:/bin:${PATH}"
+PROMPT="%{${fg_bold[red]}%}¬ %{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}%{$fb_bold[blue]%}${PROMPT}"
+fi
+export PATH
+unset ROOTPATH
 
-# Customize to your needs...
+function bat_info(){
+    acpi | cut -d " " -f5
+}
 
-# Misc exports
-export EDITOR=/usr/bin/vim
-export PATH=$PATH:~/.local/opt/android-sdk-linux_86/tools/:~/bin/
-export PAGER=less
+MYRPROMPT='$(bat_info)'
+reset_rprompt(){
+    RPROMPT=$MYRPROMPT
+}
 
-# Autoloads
-autoload -U colors
-autoload -U compinit compinit
-compinit bashcompletion
-autoload -U zfinit
-autoload -U zmv
+reset_rprompt
 
-# Allow linefeeds in quoted expressions
-unsetopt cshjunkiequotes
-# Don't save the current line in the history if it's the same as the line
-# above
-setopt histignoredups
-setopt histignorespace # Don't save lines beginning with a space
-setopt interactivecomments # allow comments in command lines
-setopt noclobber # don't accidentally overwrite files with >
-setopt extendedglob
+precmd(){
+    vcs_info
+    [[ $(tty) = /dev/pts/* ]] && print -Pn "\e]0;%n@%M:%~\a"
+}
 
-# Auto completion
-source ~/.zsh_autocomp
+shopts=$-
+setopt nullglob
+for sh in /etc/profile.d/*.sh ; do
+[ -r "$sh" ] && . "$sh"
+done
+unsetopt nullglob
+set -$shopts
+unset sh shopts
 
-#Useful shortcuts (not SO useful if you use vi-mode, but still quite handy)
-typeset -g -A key
-bindkey '^I' complete-word # complete on tab, leave expansion to _expand
-#WORDCHARS=${WORDCHARS//[&=\/;!#%{]}
-#WORDCHARS=${WORDCHARS//[&=\  ;!#%{]}
-WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-#bindkey -v
-bindkey -e
-bindkey "\e[1~" beginning-of-line # Home
-bindkey "\e[4~" end-of-line # End
-bindkey "\e[5~" beginning-of-history # PageUp
-bindkey "\e[6~" end-of-history # PageDown
-bindkey "\e[2~" quoted-insert # Ins
-bindkey "\e[3~" delete-char # Del
-bindkey "\e[5C" forward-word
-bindkey "\eOc" emacs-forward-word
-bindkey "\e[5D" backward-word
-bindkey "\eOd" emacs-backward-word
-bindkey "\e\e[C" forward-word
-bindkey "\e\e[D" backward-word
-bindkey "\e[Z" reverse-menu-complete # Shift+Tab
-# for rxvt
-bindkey "\e[7~" beginning-of-line # Home
-bindkey "\e[8~" end-of-line # End
-# for non RH/Debian xterm, can't hurt for RH/Debian xterm
-bindkey "\eOH" beginning-of-line
-bindkey "\eOF" end-of-line
-# for freebsd console
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line
-
-autoload edit-command-line
-zle -N edit-command-line
-
-# Custom aliases
-source ~/.zsh_aliases
