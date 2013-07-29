@@ -16,6 +16,9 @@
 [url "git@github.com:CleverCloud/"]
     insteadof = clevergh:
 
+[url "git@github.com:ScalaIO/"]
+    insteadof = scalaio:
+
 [remote "origin"]
 	fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 [core]
@@ -32,5 +35,6 @@
     ad=add
     ap=add -p
     ri=rebase -i @{u}
+    amend=commit --amend -C HEAD
 [push]
 	default = simple
