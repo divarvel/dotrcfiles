@@ -11,7 +11,9 @@ Bundle "mattn/zencoding-vim"
 Bundle "derekwyatt/vim-scala"
 Bundle "vim-scripts/AutoComplPop"
 Bundle "vim-scripts/ctrlp.vim"
+Bundle "vim-scripts/template.vim"
 Bundle "godlygeek/tabular"
+Bundle 'wting/rust.vim'
 
 set wildignore+=*.class,*/target/*,*/node_modules/*,*/_cache/*,*/_site/*
 let g:ctrlp_prompt_mappings = {
@@ -50,7 +52,7 @@ set ignorecase
 set smartcase
 set incsearch
 set autowrite
-set mouse=a	
+" set mouse=a	
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
