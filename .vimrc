@@ -14,12 +14,24 @@ Bundle "vim-scripts/ctrlp.vim"
 Bundle "vim-scripts/template.vim"
 Bundle "godlygeek/tabular"
 Bundle 'wting/rust.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'tsaleh/vim-matchit'
+Bundle 'groenewege/vim-less'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'yuratomo/neon.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'bitc/vim-hdevtools'
 
 set wildignore+=*.class,*/target/*,*/node_modules/*,*/_cache/*,*/_site/*
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
+"let g:ctrlp_prompt_mappings = {
+"    \ 'AcceptSelection("e")': ['<c-t>'],
+"    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+"    \ }
+"
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 
 
@@ -29,12 +41,13 @@ endif
 
 set background=dark
 
-colorscheme desert
+" colorscheme desert
 if $TERM != "linux"
     " colorscheme molokai
     " colorscheme zenburn
     " colorscheme vitamins
-    colorscheme sunburst
+    " colorscheme sunburst
+    colorscheme neon
 endif
 
 " Display line numbers
@@ -108,4 +121,13 @@ autocmd insertEnter * set cursorline
 autocmd insertLeave * set nocursorline
 set list
 set listchars=tab:>-,trail:·
+
+
+let mapleader=","
+noremap <Leader><Leader> <C-^>
+
+noremap <silent> <F5> :checktime<cr>
+
+map <silent> <Leader>t :Errors<CR>
+map <Leader>s :SyntasticToggleMode<CR>
 
