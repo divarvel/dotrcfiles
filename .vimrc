@@ -76,6 +76,8 @@ endif
 source ~/.vimrc.bepo
 
 set textwidth=78
+set colorcolumn=+1
+set formatoptions-=t "disable auto wrap
 
 " Folding settings
 set foldmethod=indent   "fold based on indent
