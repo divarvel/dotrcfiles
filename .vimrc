@@ -21,6 +21,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'yuratomo/neon.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'bitc/vim-hdevtools'
+Bundle 'idris-hackers/idris-vim'
 
 set wildignore+=*.class,*/target/*,*/node_modules/*,*/_cache/*,*/_site/*
 "let g:ctrlp_prompt_mappings = {
