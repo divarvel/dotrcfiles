@@ -1,0 +1,32 @@
+[user]
+	name = Clement Delafargue
+	email = clement.delafargue@fretlink.com
+[color]
+	ui = auto
+[url "git@github.com-perso:divarvel/"]
+    insteadof = perso:
+[url "git@github.com:fretlink/"]
+    insteadof = work:
+[url "git@github.com:clementd-fretlink/"]
+    insteadof = fwork:
+[core]
+	excludesfile = /home/clementd/.config/git/gitignore
+[alias]
+    pl=pull
+    ps=push
+    st=status -sb
+    lg=log --since yesterday --author clement
+    ci=commit -v
+    df=diff
+    dc=diff --cached
+    ad=add
+    ap=add -p
+    ri=rebase -i @{u}
+    amend=commit --amend -C HEAD
+    co=checkout
+[pull]
+	rebase = preserve
+[push]
+	default = simple
+[rerere]
+	enabled = true
