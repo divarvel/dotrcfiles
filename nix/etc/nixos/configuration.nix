@@ -43,7 +43,7 @@
   environment.variables.EDITOR = pkgs.lib.mkOverride 10 "vim";
 
   environment.systemPackages = with pkgs; [
-    wget vim i3 stack git firefox i3lock rofi kakoune vscode slack networkmanager gnupg pass gnumake stow
+    wget vim i3 stack git firefox i3lock rofi kakoune vscode slack networkmanager gnupg pass gnumake stow alacritty fira-mono
   ];
 
   nixpkgs.config.allowUnfree = true;
