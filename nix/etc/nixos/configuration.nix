@@ -44,6 +44,7 @@
 
   environment.systemPackages = with pkgs; [
     wget vim i3 stack git firefox i3lock rofi kakoune vscode slack networkmanager gnupg pass gnumake stow alacritty fira-mono
+    mongodb
   ];
 
   nixpkgs.config.allowUnfree = true;
